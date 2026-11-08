@@ -1,0 +1,65 @@
+/* ===== String Lights / Fairy Lights ===== */
+.string-lights {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.wire {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+}
+
+.bulbs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+}
+
+.bulb-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bulb-string {
+  width: 1px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.bulb {
+  width: 10px;
+  height: 14px;
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  animation: bulbBlink 2s ease-in-out infinite;
+}
+
+@keyframes bulbBlink {
+  0%, 100% { opacity: 1; filter: brightness(1); }
+  30% { opacity: 0.4; filter: brightness(0.5); }
+  50% { opacity: 1; filter: brightness(1.2); }
+  70% { opacity: 0.6; filter: brightness(0.7); }
+}
+
+/* Responsive — smaller on mobile */
+@media (max-width: 600px) {
+  .bulb {
+    width: 7px;
+    height: 10px;
+  }
+  .string-lights {
+    height: 45px;
+  }
+}
+

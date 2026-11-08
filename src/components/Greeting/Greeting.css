@@ -1,0 +1,149 @@
+/* ===== Greeting Screen ===== */
+.greeting-screen {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(170deg, #0d1b3e 0%, #1a0533 50%, #0a0015 100%);
+}
+
+/* Greeting content — centered, above all decorations */
+.greeting-content {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* allow clicks to pass to fireworks canvas */
+  padding: 1rem;
+}
+
+.greeting-text-container {
+  text-align: center;
+  max-width: 90vw;
+}
+
+/* "Wishing you a" */
+.greeting-subtitle-text {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: 300;
+  color: rgba(255, 245, 204, 0.9);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* "Happy Diwali" — big festive text */
+.greeting-main-text {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 10vw, 6rem);
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  text-shadow:
+    0 0 10px rgba(255, 215, 0, 0.6),
+    0 0 30px rgba(255, 215, 0, 0.4),
+    0 0 60px rgba(255, 140, 0, 0.3),
+    0 0 100px rgba(255, 140, 0, 0.2);
+  /* Golden glow effect */
+  background: linear-gradient(135deg, #FFF5CC, #FFD700, #FF8C00, #FFD700, #FFF5CC);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Individual letter styling */
+.greeting-letter {
+  display: inline-block;
+}
+
+/* Name line */
+.greeting-name {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #FFF5CC;
+  text-shadow:
+    0 0 10px rgba(255, 215, 0, 0.5),
+    0 0 20px rgba(255, 140, 0, 0.3);
+  margin-bottom: 1rem;
+}
+
+/* Decorative symbol row */
+.greeting-symbol {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  margin-top: 0.5rem;
+  letter-spacing: 8px;
+}
+
+/* Action buttons */
+.greeting-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  pointer-events: auto; /* re-enable clicks for buttons */
+}
+
+.action-btn {
+  padding: 0.7rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: box-shadow 0.3s;
+}
+
+.replay-btn {
+  color: #1a0533;
+  background: linear-gradient(135deg, var(--gold), var(--orange));
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.replay-btn:hover {
+  box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
+}
+
+.change-name-btn {
+  color: var(--gold);
+  background: transparent;
+  border: 2px solid rgba(255, 215, 0, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+.change-name-btn:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .greeting-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .action-btn {
+    width: 200px;
+    text-align: center;
+  }
+  .greeting-symbol {
+    letter-spacing: 4px;
+  }
+}
+

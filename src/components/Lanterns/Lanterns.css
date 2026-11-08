@@ -1,0 +1,140 @@
+/* ===== Floating Lanterns (Akash Kandil) ===== */
+.lanterns-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.lantern {
+  position: absolute;
+  bottom: -120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: floatUp 26s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    bottom: -120px;
+    opacity: 0;
+    transform: translateX(0);
+  }
+  5% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(30px);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    bottom: 110%;
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+/* Warm glow behind lantern */
+.lantern-glow {
+  position: absolute;
+  top: 0;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle, rgba(255, 165, 0, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: lanternGlowPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes lanternGlowPulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.4); opacity: 0.9; }
+}
+
+/* Lantern structure */
+.lantern-body {
+  position: relative;
+  z-index: 1;
+}
+
+.lantern-top {
+  width: 20px;
+  height: 6px;
+  background: linear-gradient(135deg, #B8860B, #DAA520);
+  border-radius: 3px 3px 0 0;
+  margin: 0 auto;
+}
+
+.lantern-middle {
+  width: 40px;
+  height: 50px;
+  background: linear-gradient(180deg, #FF8C00, #FF6347, #FF4500);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+/* Decorative cross pattern on lantern */
+.lantern-pattern {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 45%, rgba(218, 165, 32, 0.4) 45%, rgba(218, 165, 32, 0.4) 55%, transparent 55%),
+    linear-gradient(0deg, transparent 40%, rgba(218, 165, 32, 0.4) 40%, rgba(218, 165, 32, 0.4) 60%, transparent 60%);
+}
+
+.lantern-bottom {
+  width: 24px;
+  height: 4px;
+  background: linear-gradient(135deg, #B8860B, #DAA520);
+  border-radius: 0 0 3px 3px;
+  margin: 0 auto;
+}
+
+/* Tassel hanging from bottom */
+.lantern-tassel {
+  width: 2px;
+  height: 15px;
+  background: #DAA520;
+  border-radius: 0 0 1px 1px;
+  position: relative;
+}
+
+.lantern-tassel::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: #FFD700;
+  border-radius: 50%;
+}
+
+/* Gentle sway animation layered on top */
+.lantern {
+  animation: floatUp 26s ease-in-out infinite, sway 4s ease-in-out infinite alternate;
+}
+
+@keyframes sway {
+  0% { margin-left: -15px; }
+  100% { margin-left: 15px; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .lantern:nth-child(4),
+  .lantern:nth-child(5) {
+    display: none;
+  }
+  .lantern-middle {
+    width: 30px;
+    height: 40px;
+  }
+}
+

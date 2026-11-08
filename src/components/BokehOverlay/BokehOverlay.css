@@ -1,0 +1,41 @@
+/* ===== Bokeh / Sparkle Overlay ===== */
+.bokeh-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.bokeh-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%,
+    rgba(255, 245, 204, 0.8) 0%,
+    rgba(255, 215, 0, 0.4) 40%,
+    rgba(255, 215, 0, 0.1) 70%,
+    transparent 100%
+  );
+  animation: bokehFloat linear infinite;
+}
+
+@keyframes bokehFloat {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--bokeh-opacity, 0.2);
+  }
+  50% {
+    transform: translate(calc(var(--x-drift, 30px) * 0.5), calc(var(--y-drift, -40px) * 0.5)) scale(1.2);
+  }
+  90% {
+    opacity: var(--bokeh-opacity, 0.2);
+  }
+  100% {
+    transform: translate(var(--x-drift, 30px), var(--y-drift, -40px)) scale(0.8);
+    opacity: 0;
+  }
+}
+

@@ -1,0 +1,59 @@
+/* ===== Rangoli Pattern ===== */
+.rangoli-container {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 180px;
+  z-index: 4;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rangoli-glow {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, rgba(255, 69, 0, 0.08) 40%, transparent 70%);
+  border-radius: 50%;
+  animation: rangoliPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes rangoliPulse {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  100% { transform: scale(1.2); opacity: 1; }
+}
+
+.rangoli-svg {
+  width: 160px;
+  height: 160px;
+  will-change: transform;
+  transform: translateZ(0);
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.3));
+}
+
+@keyframes rangoliSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .rangoli-container {
+    width: 120px;
+    height: 120px;
+    bottom: 30px;
+  }
+  .rangoli-svg {
+    width: 110px;
+    height: 110px;
+  }
+  .rangoli-glow {
+    width: 140px;
+    height: 140px;
+  }
+}
+

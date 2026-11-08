@@ -1,0 +1,9 @@
+/* App wrapper — fills the viewport */
+.app {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(170deg, var(--navy) 0%, var(--purple-dark) 50%, var(--dark-bg) 100%);
+}
+

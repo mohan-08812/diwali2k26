@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Diwali diya favicon -->
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#FFD700" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FF8C00" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Glow -->
+  <circle cx="32" cy="22" r="18" fill="url(#glow)"/>
+  <!-- Flame -->
+  <path d="M32 10 C28 18, 24 22, 28 28 C30 30, 34 30, 36 28 C40 22, 36 18, 32 10Z" fill="#FFD700"/>
+  <path d="M32 14 C30 19, 28 22, 30 26 C31 27, 33 27, 34 26 C36 22, 34 19, 32 14Z" fill="#FFF5CC"/>
+  <!-- Diya body -->
+  <ellipse cx="32" cy="38" rx="16" ry="6" fill="#CD853F"/>
+  <ellipse cx="32" cy="36" rx="14" ry="5" fill="#DEB887"/>
+  <path d="M18 38 Q20 50, 32 52 Q44 50, 46 38" fill="#CD853F"/>
+  <!-- Base -->
+  <ellipse cx="32" cy="52" rx="10" ry="3" fill="#8B6914"/>
+</svg>
